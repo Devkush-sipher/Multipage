@@ -1,23 +1,16 @@
 # Multipage_app.py
-"""
-Entry point for the “Multipage App”.
-
-• Keep this file at the project root.
-• Put each feature page (app.py, hello.py, …) inside a folder named `pages/`.
-  Streamlit will discover them and show them in the sidebar automatically.
-• Launch with:  streamlit run Multipage_app.py
-"""
+# This code will run to start the app
 
 import streamlit as st
 
-# ----- basic page config -----
+
 st.set_page_config(
     page_title="Multipage App",
     page_icon="📚",
     layout="wide",
 )
 
-# ----------- Hero section -----------
+
 st.markdown(
     """
     <h1 style="text-align:center; font-size:3.5rem; font-weight:800;">
