@@ -1,55 +1,49 @@
-import streamlit as st
-
-st.title("🎈 My new app")
-st.write(
-    "Let's start building! For help and inspiration, head over to [docs.streamlit.io](https://docs.streamlit.io/)."
-)
 # Multipage_app.py
 """
-Main router for the “Multipage app”.
-Drop this file in the same folder as the other page-files and run:
-    streamlit run Multipage_app.py
+Entry point for the “Multipage App”.
+
+• Keep this file at the project root.
+• Put each feature page (app.py, hello.py, …) inside a folder named `pages/`.
+  Streamlit will discover them and show them in the sidebar automatically.
+• Launch with:  streamlit run Multipage_app.py
 """
 
 import streamlit as st
-import runpy           # lets us execute other .py files in the same process
-from streamlit_option_menu import option_menu  # pip install streamlit-option-menu
 
-st.set_page_config(page_title="Multipage app", page_icon="📚", layout="wide")
-
-# ---------- Menu ----------
-selected = option_menu(
-    menu_title="Multipage app",          # shows as a centred title bar
-    options=[
-        "Static-Site Generator",
-        "Volleyball Score Tracker",
-        "Health Tracker",
-        "Horoscope",
-        "Financial Dashboard",
-    ],
-    icons=[
-        "bar-chart-fill",
-        "trophy-fill",
-        "heart-pulse-fill",
-        "moon-stars-fill",
-        "bank",
-    ],                           # any Bootstrap icon name
-    default_index=0,
-    orientation="horizontal",    # replicates the look in the YouTube video
-    styles={
-        "container": {"padding": "0!important"},
-        "nav-link": {"font-size": "18px", "padding": "10px 18px"},
-        "nav-link-selected": {"background-color": "#6c63ff"},
-    },
+# ----- basic page config -----
+st.set_page_config(
+    page_title="Multipage App",
+    page_icon="📚",
+    layout="wide",
 )
 
-# ---------- Simple router ----------
-PAGE_TO_FILE = {
-    "Static-Site Generator": "app.py",             # :contentReference[oaicite:6]{index=6}
-    "Volleyball Score Tracker": "hello.py",        # :contentReference[oaicite:7]{index=7}
-    "Health Tracker": "healthTrackerApp.py",       # :contentReference[oaicite:8]{index=8}
-    "Horoscope": "Streamlit.py",                   # :contentReference[oaicite:9]{index=9}
-    "Financial Dashboard": "Fin_Dashboard.py",     # :contentReference[oaicite:10]{index=10}
-}
+# ----------- Hero section -----------
+st.markdown(
+    """
+    <h1 style="text-align:center; font-size:3.5rem; font-weight:800;">
+        Multipage App
+    </h1>
+    """,
+    unsafe_allow_html=True,
+)
 
-runpy.run_path(PAGE_TO_FILE[selected], run_name="__main__")
+st.markdown(
+    """
+    <div style="text-align:center; font-size:1.25rem;">
+        <strong>created by</strong><br>
+        Devesh&nbsp;Kushwaha<br>
+        Suryansh&nbsp;Singh<br>
+        Ram&nbsp;Satish<br>
+        Vansh&nbsp;Seth<br>
+        Vaishnav&nbsp;Pasarge
+    </div>
+    """,
+    unsafe_allow_html=True,
+)
+
+st.markdown("---")
+
+st.markdown(
+    "<h3 style='text-align:center;'>✅ Check out the <em>side&nbsp;menu</em> to see all the pages.</h3>",
+    unsafe_allow_html=True,
+)
